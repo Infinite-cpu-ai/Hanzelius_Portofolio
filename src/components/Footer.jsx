@@ -8,8 +8,10 @@ const Footer = () => {
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.brand}>
-            <img src="/assets/Logo.png" alt="Hanzelius Logo" className={styles.footerLogo} />
-            <span className={styles.logoText}>Hanzelius</span>
+            <div className={styles.logoGroup}>
+              <img src="/assets/Logo.png" alt="Hanzelius Logo" className={styles.footerLogo} />
+              <span className={styles.logoText}>Hanzelius</span>
+            </div>
             <p>Informatics Student | Full-Stack Developer</p>
           </div>
           <div className={styles.socials}>
