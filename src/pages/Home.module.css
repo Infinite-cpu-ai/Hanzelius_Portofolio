@@ -20,8 +20,8 @@
 
 .profileImageContainer {
   flex-shrink: 0;
-  width: 150px;
-  height: 150px;
+  width: 280px;
+  height: 280px;
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid var(--accent-color);
@@ -101,6 +101,11 @@
     flex-direction: column;
     text-align: center;
     gap: 1.5rem;
+  }
+  
+  .profileImageContainer {
+    width: 200px;
+    height: 200px;
   }
   
   .actions {
