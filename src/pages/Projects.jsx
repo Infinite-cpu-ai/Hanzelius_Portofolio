@@ -5,11 +5,8 @@ import PageWrapper from '../components/PageWrapper';
 import ProjectCard from '../components/ProjectCard';
 import styles from './Projects.module.css';
 
-const Projects = () => {
-  const [selectedIndex, setSelectedIndex] = useState(null);
-
-  const projects = [
-    {
+export const projectsData = [
+  {
       title: "YukDebat",
       role: "iOS Developer - Motion Archive, Case Building Notes, Gemini AI Integration",
       date: "2026",
@@ -67,8 +64,12 @@ const Projects = () => {
       tags: ["Laravel", "PHP", "Tailwind CSS", "MySQL"],
       github: "https://github.com/TanggaRusakk/LKI",
       image: "/assets/projects/lki.png"
-    }
-  ];
+  }
+];
+
+const Projects = () => {
+  const [selectedIndex, setSelectedIndex] = useState(null);
+  const projects = projectsData;
 
   return (
     <PageWrapper className={styles.projects}>

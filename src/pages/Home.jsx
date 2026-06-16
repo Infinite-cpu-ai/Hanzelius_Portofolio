@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { projectsData } from './Projects';
 import PageWrapper from '../components/PageWrapper';
 import styles from './Home.module.css';
 
@@ -108,7 +109,7 @@ const Home = () => {
         transition={{ delay: 0.8, duration: 1 }}
       >
         <div className={styles.stat}>
-          <h3>3+</h3>
+          <h3>{projectsData.length - 1}+</h3>
           <p>Major Projects</p>
         </div>
         <div className={styles.stat}>
