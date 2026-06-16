@@ -9,6 +9,7 @@ const Footer = () => {
         <div className={styles.content}>
           <div className={styles.brand}>
             <img src="/assets/Logo.png" alt="Hanzelius Logo" className={styles.footerLogo} />
+            <span className={styles.logoText}>Hanzelius</span>
             <p>Informatics Student | Full-Stack Developer</p>
           </div>
           <div className={styles.socials}>
