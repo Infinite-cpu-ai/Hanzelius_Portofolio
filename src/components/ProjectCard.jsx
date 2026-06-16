@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
+import { FaGithub as Github } from 'react-icons/fa';
 import styles from './ProjectCard.module.css';
 
 const ProjectCard = ({ title, role, date, description, tags, link, github, features }) => {

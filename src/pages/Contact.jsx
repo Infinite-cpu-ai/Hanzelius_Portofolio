@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Github, Linkedin } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
+import { FaGithub as Github, FaLinkedin as Linkedin } from 'react-icons/fa';
 import PageWrapper from '../components/PageWrapper';
 import styles from './Contact.module.css';
 
