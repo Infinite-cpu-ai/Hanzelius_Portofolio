@@ -1,20 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --bg-primary: #0a0a0a;
-  --bg-secondary: #141414;
-  --bg-surface: #1e1e1e;
-  --bg-hover: #2a2a2a;
+  /* Twilight / Sunset Clouds Theme (Awan Senja) */
+  --bg-primary: #191426; /* Deep twilight navy/purple */
+  --bg-secondary: #251D3A; 
+  --bg-surface: rgba(43, 33, 67, 0.6); 
+  --bg-hover: rgba(62, 49, 93, 0.8);
   
-  --text-primary: #ffffff;
-  --text-secondary: #a0a0a0;
-  --text-muted: #666666;
+  --text-primary: #FFEAE5; /* Warm off-white */
+  --text-secondary: #D2C1E0; /* Muted lavender */
+  --text-muted: #9E8DB1;
   
-  --accent-color: #6366f1; /* Indigo */
-  --accent-hover: #818cf8;
+  --accent-color: #FF7E67; /* Sunset coral/orange */
+  --accent-hover: #FF9A85;
+  --accent-glow: rgba(255, 126, 103, 0.4);
   
-  --border-color: #333333;
-  --border-radius: 12px;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-radius: 16px;
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s ease;
   
@@ -36,12 +38,58 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  cursor: none; /* Hide default cursor to use CustomCursor */
 }
 
 body {
   margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
+  background-color: var(--bg-primary);
+}
+
+/* Animated Cloudy Background Effect */
+@keyframes cloudMove1 {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+  33% { transform: translate(5%, -5%) scale(1.1); opacity: 0.8; }
+  66% { transform: translate(-2%, 8%) scale(0.9); opacity: 0.5; }
+  100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+}
+
+@keyframes cloudMove2 {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+  33% { transform: translate(-5%, 8%) scale(1.15); opacity: 0.7; }
+  66% { transform: translate(5%, -2%) scale(0.95); opacity: 0.4; }
+  100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+}
+
+body::before, body::after {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  z-index: -1;
+  background-repeat: no-repeat;
+}
+
+body::before {
+  background: radial-gradient(circle at 35% 40%, rgba(255, 126, 103, 0.1), transparent 30%),
+              radial-gradient(circle at 65% 60%, rgba(138, 98, 222, 0.1), transparent 30%);
+  animation: cloudMove1 25s ease-in-out infinite;
+}
+
+body::after {
+  background: radial-gradient(circle at 75% 20%, rgba(255, 160, 122, 0.08), transparent 25%),
+              radial-gradient(circle at 25% 80%, rgba(100, 70, 200, 0.08), transparent 25%);
+  animation: cloudMove2 30s ease-in-out infinite reverse;
+}
+
+/* Ensure links and buttons don't show default cursor */
+a, button, input, textarea {
+  cursor: none;
 }
 
 a {
@@ -87,53 +135,37 @@ main {
   margin: 0 auto;
 }
 
-.glass-panel {
-  background: rgba(30, 30, 30, 0.6);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: var(--border-radius);
-}
-
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   background-color: var(--accent-color);
-  color: white;
+  color: #191426; /* Dark text for contrast on accent */
   padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 500;
+  border-radius: 12px;
+  font-weight: 600;
   border: none;
-  cursor: pointer;
   transition: all var(--transition-fast);
+  box-shadow: 0 4px 14px var(--accent-glow);
 }
 
 .button:hover {
   background-color: var(--accent-hover);
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--accent-glow);
 }
 
 .button.outline {
   background-color: transparent;
-  border: 1px solid var(--border-color);
-  color: var(--text-primary);
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  box-shadow: none;
 }
 
 .button.outline:hover {
-  background-color: var(--bg-hover);
-  border-color: var(--text-secondary);
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.6s ease forwards;
+  background-color: rgba(255, 126, 103, 0.1);
+  box-shadow: 0 4px 14px var(--accent-glow);
 }
 
 /* Scrollbar */
@@ -144,9 +176,9 @@ main {
   background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--bg-surface);
+  background: var(--bg-hover);
   border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--bg-hover);
+  background: var(--accent-color);
 }

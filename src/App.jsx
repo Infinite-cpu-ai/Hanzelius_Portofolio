@@ -6,11 +6,13 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import Achievements from './pages/Achievements';
 import Contact from './pages/Contact';
+import CustomCursor from './components/CustomCursor';
 import { AnimatePresence } from 'framer-motion';
 
 function App() {
   return (
     <Router>
+      <CustomCursor />
       <Navbar />
       <main>
         <AnimatePresence mode="wait">

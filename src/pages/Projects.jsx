@@ -58,6 +58,7 @@ const Projects = () => {
         "Enforced version control best practices for team collaboration."
       ],
       tags: ["Laravel", "PHP", "Tailwind CSS", "MySQL"],
+      github: "https://github.com/TanggaRusakk/LKI"
     }
   ];
 
