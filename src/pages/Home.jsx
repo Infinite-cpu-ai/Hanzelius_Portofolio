@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import PageWrapper from '../components/PageWrapper';
-import Magnetic from '../components/Magnetic';
 import styles from './Home.module.css';
 
 const TypewriterText = ({ text }) => {
@@ -71,16 +70,12 @@ const Home = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.6 }}
         >
-          <Magnetic padding={30}>
-            <Link to="/projects" className="button">
-              View My Work
-            </Link>
-          </Magnetic>
-          <Magnetic padding={30}>
-            <Link to="/contact" className="button outline">
-              Get in Touch
-            </Link>
-          </Magnetic>
+          <Link to="/projects" className="button">
+            View My Work
+          </Link>
+          <Link to="/contact" className="button outline">
+            Get in Touch
+          </Link>
         </motion.div>
       </div>
       
@@ -90,24 +85,18 @@ const Home = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8, duration: 1 }}
       >
-        <Magnetic>
-          <div className={styles.stat}>
-            <h3>3+</h3>
-            <p>Major Projects</p>
-          </div>
-        </Magnetic>
-        <Magnetic>
-          <div className={styles.stat}>
-            <h3>Full-Stack</h3>
-            <p>Web & Mobile</p>
-          </div>
-        </Magnetic>
-        <Magnetic>
-          <div className={styles.stat}>
-            <h3>National</h3>
-            <p>Award Winner</p>
-          </div>
-        </Magnetic>
+        <div className={styles.stat}>
+          <h3>3+</h3>
+          <p>Major Projects</p>
+        </div>
+        <div className={styles.stat}>
+          <h3>Full-Stack</h3>
+          <p>Web & Mobile</p>
+        </div>
+        <div className={styles.stat}>
+          <h3>National</h3>
+          <p>Award Winner</p>
+        </div>
       </motion.div>
     </PageWrapper>
   );
