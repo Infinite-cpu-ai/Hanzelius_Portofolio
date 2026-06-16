@@ -7,6 +7,7 @@ const Navbar = () => {
       <div className={styles.container}>
         <NavLink to="/" className={styles.logo}>
           <img src="/assets/Logo.png" alt="Hanzelius Logo" className={styles.logoImage} />
+          <span className={styles.logoText}>Hanzelius</span>
         </NavLink>
         <div className={styles.links}>
           <NavLink to="/" className={({ isActive }) => isActive ? styles.active : ''}>Home</NavLink>
