@@ -19,7 +19,7 @@ const About = () => {
       >
         <h1>About Me</h1>
         <p className={styles.intro}>
-          Informatics student at Universitas Ciputra Surabaya with hands-on experience in full-stack web development (Laravel, SQL), mobile development (Kotlin, SwiftUI), and applied machine learning (Python). Detail-oriented and adaptable, with a growing focus on iOS development and AI, currently prospecting entry into the Apple Developer Academy.
+          Informatics student at Universitas Ciputra Surabaya with hands-on experience in full-stack web development (Laravel, SQL), mobile development (Kotlin, SwiftUI), and applied machine learning (Python). Detail-oriented and adaptable, with a growing focus on iOS development and AI.
         </p>
       </motion.div>
 
