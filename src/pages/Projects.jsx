@@ -1,11 +1,12 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import PageWrapper from '../components/PageWrapper';
 import ProjectCard from '../components/ProjectCard';
 import styles from './Projects.module.css';
 
 const Projects = () => {
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
 
   const projects = [
     {
@@ -80,44 +81,78 @@ const Projects = () => {
         <p>A selection of my recent work in web and mobile development.</p>
       </motion.div>
 
-      <motion.div 
-        className={styles.grid}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.2 }}
-      >
-        {projects.map((project, idx) => (
+      <AnimatePresence mode="wait">
+        {selectedIndex === null ? (
           <motion.div 
-            key={idx}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: idx * 0.1 }}
+            key="grid"
+            className={styles.grid}
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -50 }}
+            transition={{ type: 'spring', stiffness: 260, damping: 25 }}
           >
-            <ProjectCard 
-              {...project} 
-              layoutId={`project-${idx}`}
-              onClick={() => setSelectedProject({ ...project, layoutId: `project-${idx}` })}
-            />
+            {projects.map((project, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+              >
+                <ProjectCard 
+                  {...project} 
+                  onClick={() => {
+                    setSelectedIndex(idx);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                />
+              </motion.div>
+            ))}
           </motion.div>
-        ))}
-      </motion.div>
-
-      <AnimatePresence>
-        {selectedProject && (
+        ) : (
           <motion.div 
-            className={styles.modalOverlay}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedProject(null)}
+            key="detail"
+            className={styles.detailContainer}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 50 }}
+            transition={{ type: 'spring', stiffness: 260, damping: 25 }}
           >
-            <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-              <ProjectCard 
-                {...selectedProject} 
-                isExpanded={true} 
-                layoutId={selectedProject.layoutId} 
-              />
+            <div className={styles.detailHeader}>
+              <button 
+                className={styles.closeBtn} 
+                onClick={() => setSelectedIndex(null)}
+                aria-label="Close detail view"
+              >
+                <X size={28} />
+              </button>
+            </div>
+            
+            <div className={styles.detailBody}>
+              <button 
+                className={`${styles.navBtn} ${selectedIndex === 0 ? styles.disabled : ''}`}
+                onClick={() => setSelectedIndex(prev => Math.max(0, prev - 1))}
+                disabled={selectedIndex === 0}
+                aria-label="Previous project"
+              >
+                <ChevronLeft size={36} />
+              </button>
+              
+              <div className={styles.detailCardWrapper}>
+                <ProjectCard 
+                  {...projects[selectedIndex]} 
+                  isExpanded={true} 
+                />
+              </div>
+              
+              <button 
+                className={`${styles.navBtn} ${selectedIndex === projects.length - 1 ? styles.disabled : ''}`}
+                onClick={() => setSelectedIndex(prev => Math.min(projects.length - 1, prev + 1))}
+                disabled={selectedIndex === projects.length - 1}
+                aria-label="Next project"
+              >
+                <ChevronRight size={36} />
+              </button>
             </div>
           </motion.div>
         )}
