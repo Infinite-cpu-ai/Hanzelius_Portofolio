@@ -5,9 +5,14 @@ import styles from './ProjectCard.module.css';
 
 import SpotlightCard from './SpotlightCard';
 
-const ProjectCard = ({ title, role, date, description, tags, link, github, features }) => {
+const ProjectCard = ({ title, role, date, description, tags, link, github, features, image }) => {
   return (
     <SpotlightCard className={styles.card}>
+      {image && (
+        <div className={styles.imageContainer}>
+          <img src={image} alt={title} className={styles.projectImage} />
+        </div>
+      )}
       <div className={styles.header}>
         <div className={styles.titleGroup}>
           <h3>{title}</h3>

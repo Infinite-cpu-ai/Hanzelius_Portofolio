@@ -35,25 +35,36 @@ const Home = () => {
         >
           Available for Opportunities
         </motion.div>
-        
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-        >
-          Hi, I'm <span className={styles.highlight}><TypewriterText text="Hanzelius" /></span><br />
-          I build premium digital experiences.
-        </motion.h1>
-        
-        <motion.p
-          className={styles.subtitle}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-        >
-          Informatics Student | Full-Stack Developer | iOS Developer
-        </motion.p>
-        
+        <div className={styles.heroContent}>
+          <motion.div 
+            className={styles.profileImageContainer}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+          >
+            <img src="/assets/profile/hanzelius.png" alt="Hanzelius" className={styles.profileImage} />
+          </motion.div>
+          
+          <div className={styles.heroText}>
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+            >
+              Hi, I'm <span className={styles.highlight}><TypewriterText text="Hanzelius" /></span><br />
+              An enthusiastic Full-Stack Developer.
+            </motion.h1>
+            
+            <motion.p
+              className={styles.subtitle}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+            >
+              I build premium digital experiences for Web & iOS.
+            </motion.p>
+          </div>
+        </div>
         <motion.div 
           className={styles.actions}
           initial={{ opacity: 0, y: 30 }}

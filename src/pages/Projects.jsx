@@ -17,7 +17,8 @@ const Projects = () => {
         "Built a real-time experience governed by an admin-aware UI."
       ],
       tags: ["Swift", "SwiftUI", "Firebase", "Gemini AI", "MVVM"],
-      github: "https://github.com/Jeruk-Kurej/YukDebat"
+      github: "https://github.com/Jeruk-Kurej/YukDebat",
+      image: "/assets/projects/yukdebat.png"
     },
     {
       title: "Ruang Temu",
@@ -32,7 +33,8 @@ const Projects = () => {
       ],
       tags: ["Laravel", "PHP", "WebSockets", "TiDB", "Cloudinary", "Vercel"],
       github: "https://github.com/Infinite-cpu-ai/ruang_temu",
-      link: "https://ruang-temu-gold.vercel.app"
+      link: "https://ruang-temu-gold.vercel.app",
+      image: "/assets/projects/ruangtemu.png"
     },
     {
       title: "Dagify",
@@ -45,7 +47,8 @@ const Projects = () => {
         "Designed a hybrid Swift UI/UIKit solution to fix native iOS PDF page orientation bugs."
       ],
       tags: ["Swift", "SwiftUI", "Firebase", "UIKit", "POP"],
-      github: "https://github.com/Jeruk-Kurej/Dagify"
+      github: "https://github.com/Jeruk-Kurej/Dagify",
+      image: "/assets/projects/dagify.png"
     },
     {
       title: "CV. Lambang Karya Indah",
@@ -58,7 +61,8 @@ const Projects = () => {
         "Enforced version control best practices for team collaboration."
       ],
       tags: ["Laravel", "PHP", "Tailwind CSS", "MySQL"],
-      github: "https://github.com/TanggaRusakk/LKI"
+      github: "https://github.com/TanggaRusakk/LKI",
+      image: "/assets/projects/lki.png"
     }
   ];
 
