@@ -1,9 +1,12 @@
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import PageWrapper from '../components/PageWrapper';
 import ProjectCard from '../components/ProjectCard';
 import styles from './Projects.module.css';
 
 const Projects = () => {
+  const [selectedProject, setSelectedProject] = useState(null);
+
   const projects = [
     {
       title: "YukDebat",
@@ -91,10 +94,34 @@ const Projects = () => {
             viewport={{ once: true }}
             transition={{ delay: idx * 0.1 }}
           >
-            <ProjectCard {...project} />
+            <ProjectCard 
+              {...project} 
+              layoutId={`project-${idx}`}
+              onClick={() => setSelectedProject({ ...project, layoutId: `project-${idx}` })}
+            />
           </motion.div>
         ))}
       </motion.div>
+
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div 
+            className={styles.modalOverlay}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedProject(null)}
+          >
+            <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+              <ProjectCard 
+                {...selectedProject} 
+                isExpanded={true} 
+                layoutId={selectedProject.layoutId} 
+              />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </PageWrapper>
   );
 };

@@ -6,6 +6,15 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  cursor: pointer;
+}
+
+.expandedCard {
+  cursor: default;
+  height: auto;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 2.5rem;
 }
 
 .imageContainer {
@@ -15,6 +24,10 @@
   overflow: hidden;
   margin-bottom: 1.5rem;
   background-color: rgba(0, 0, 0, 0.2);
+}
+
+.expandedImageContainer {
+  height: 350px;
 }
 
 .projectImage {
@@ -70,6 +83,14 @@
   margin-bottom: 1.5rem;
   font-size: 0.95rem;
   line-height: 1.6;
+}
+
+.descriptionLimit {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .features {
