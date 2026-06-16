@@ -35,7 +35,7 @@ const Home = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
-          Available for Opportunities
+          Informatics Student
         </motion.div>
         <div className={styles.heroContent}>
           <div style={{ perspective: 1000 }}>
