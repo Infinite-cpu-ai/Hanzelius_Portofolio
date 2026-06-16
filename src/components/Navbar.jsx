@@ -6,7 +6,7 @@ const Navbar = () => {
     <nav className={styles.navbar}>
       <div className={styles.container}>
         <NavLink to="/" className={styles.logo}>
-          Hanzelius
+          <img src="/assets/Logo.png" alt="Hanzelius Logo" className={styles.logoImage} />
         </NavLink>
         <div className={styles.links}>
           <NavLink to="/" className={({ isActive }) => isActive ? styles.active : ''}>Home</NavLink>

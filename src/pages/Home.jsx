@@ -42,7 +42,7 @@ const Home = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            <img src="/assets/profile/hanzelius.png" alt="Hanzelius" className={styles.profileImage} />
+            <img src="/assets/profile/Profile Hanzelius.png" alt="Hanzelius" className={styles.profileImage} />
           </motion.div>
           
           <div className={styles.heroText}>

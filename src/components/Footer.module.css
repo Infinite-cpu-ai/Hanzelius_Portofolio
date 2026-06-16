@@ -12,6 +12,17 @@
   padding: 0 2rem;
 }
 
+.brand {
+  max-width: 300px;
+}
+
+.footerLogo {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
 .content {
   display: flex;
   justify-content: space-between;
