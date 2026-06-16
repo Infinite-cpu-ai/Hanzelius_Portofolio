@@ -52,7 +52,7 @@ const Home = () => {
               transition={{ delay: 0.4, duration: 0.6 }}
             >
               Hi, I'm <span className={styles.highlight}><TypewriterText text="Hanzelius" /></span><br />
-              An enthusiastic Full-Stack Developer.
+              An Enthusiastic Full-Stack Developer.
             </motion.h1>
             
             <motion.p

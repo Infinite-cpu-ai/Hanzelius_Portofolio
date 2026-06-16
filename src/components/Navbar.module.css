@@ -31,8 +31,10 @@
 
 .logoImage {
   height: 40px;
-  width: auto;
-  object-fit: contain;
+  width: 40px;
+  object-fit: cover;
+  border: 1px solid white;
+  border-radius: 50%;
 }
 
 .logo:hover {
