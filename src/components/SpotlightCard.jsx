@@ -28,6 +28,7 @@ const SpotlightCard = ({ children, className = '', layoutId, onClick }) => {
       ref={ref}
       layoutId={layoutId}
       onClick={onClick}
+      transition={{ type: 'spring', stiffness: 100, damping: 20, duration: 0.6 }}
       onMouseMove={handleMouseMoveCorrected}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
