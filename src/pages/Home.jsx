@@ -37,33 +37,34 @@ const Home = () => {
           Available for Opportunities
         </motion.div>
         <div className={styles.heroContent}>
-          <motion.div 
-            className={styles.profileImageContainer}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            onClick={() => setIsFlipped(!isFlipped)}
-            style={{ cursor: 'pointer', perspective: 1000 }}
-          >
-            <motion.div
-              animate={{ rotateY: isFlipped ? 180 : 0 }}
-              transition={{ duration: 0.6, type: 'spring', stiffness: 260, damping: 20 }}
-              style={{ width: '100%', height: '100%', position: 'relative', transformStyle: 'preserve-3d' }}
+          <div style={{ perspective: 1000 }}>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
             >
-              <img 
-                src="/assets/profile/Profile Hanzelius.png" 
-                alt="Hanzelius" 
-                className={styles.profileImage} 
-                style={{ position: 'absolute', backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
-              />
-              <img 
-                src="/assets/profile/Profile Hanzelius Flipped.png" 
-                alt="Hanzelius Flipped" 
-                className={styles.profileImage} 
-                style={{ position: 'absolute', backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
-              />
+              <motion.div
+                className={styles.profileImageContainer}
+                animate={{ rotateY: isFlipped ? 180 : 0 }}
+                transition={{ duration: 0.6, type: 'spring', stiffness: 260, damping: 20 }}
+                onClick={() => setIsFlipped(!isFlipped)}
+                style={{ cursor: 'pointer', transformStyle: 'preserve-3d', position: 'relative' }}
+              >
+                <img 
+                  src="/assets/profile/Profile Hanzelius.png" 
+                  alt="Hanzelius" 
+                  className={styles.profileImage} 
+                  style={{ position: 'absolute', top: 0, left: 0, backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
+                />
+                <img 
+                  src="/assets/profile/Profile Hanzelius Flipped.png" 
+                  alt="Hanzelius Flipped" 
+                  className={styles.profileImage} 
+                  style={{ position: 'absolute', top: 0, left: 0, backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+                />
+              </motion.div>
             </motion.div>
-          </motion.div>
+          </div>
           
           <div className={styles.heroText}>
             <motion.h1
